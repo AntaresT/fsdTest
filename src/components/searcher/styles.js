@@ -118,8 +118,8 @@ const UrlItem = styled.span`
 
 `
 
-export { Container, Search, ConfirmBtn,
-   ResContainer, Title, Searcher,
-   UrlsBox, KeyAndResult, WordsList, 
-   ListItem, Link, Status,
-   StatusTitle, StatusType, UrlItem }
+export   { Container, Search, ConfirmBtn,
+        ResContainer, Title, Searcher,
+        UrlsBox, KeyAndResult, WordsList, 
+        ListItem, Link, Status,
+        StatusTitle, StatusType, UrlItem }
