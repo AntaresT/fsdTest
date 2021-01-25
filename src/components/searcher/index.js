@@ -7,7 +7,7 @@ import { Container, Search, ConfirmBtn,
         StatusTitle, StatusType, UrlItem } 
       from './styles'
 
-import SEO from '../../components/seo'
+import SEO from '../seo'
 import apis from '../../services/api'
 
 const SearchIndex = () => {
@@ -19,10 +19,9 @@ const SearchIndex = () => {
   const [ requestResult, setRequestResult ] = useState({});
 
   useEffect (() => {
-    if (!showId) {
-      localCallback()
-    }
-    //TODO: Fazer função de atualização. Verifica se existe algum com status Active e da um Get
+    localCallback()
+  
+    //TODO: Fazer função de atualização. Verifica se existe algum com status Active 
   })
 
   function doPost(keyword){
@@ -51,27 +50,30 @@ const SearchIndex = () => {
   }
  
   function getRequest(id){
-    setShowId(false)
+    
     apis.getRequest(id)
     .then((res)=> {
-      setRequestResult(res.data)
+      let arrayRes = res.data
+      setRequestResult(arrayRes)
+      setShowRequest(true)
     },
     (err)=> {
       console.log(err);
     })
-    setShowRequest(true)
   }
  
   function localCallback() {
     
-    let getItem = JSON.parse(localStorage.getItem('wordResult'))
-    if (getItem !== null){
-      setLocalReturn(getItem)
-      setShowId(true)
-    }
-    if (!showId && getItem === null){
-      localStorage.setItem('wordResult',JSON.stringify([]));
-      setShowId(true)
+    if(!showId){
+      let getItem = JSON.parse(localStorage.getItem('wordResult'))
+      if (getItem !== null){
+        setLocalReturn(getItem)
+        setShowId(true)
+      }
+      if (!showId && getItem === null){
+        localStorage.setItem('wordResult',JSON.stringify([]));
+        setShowId(true)
+      }
     }
   }
 
@@ -122,7 +124,7 @@ const SearchIndex = () => {
                 <UrlItem key={index}>{value}</UrlItem>
                 )
               })  
-            }
+            } 
             </UrlsBox>
           </ResContainer>
         }

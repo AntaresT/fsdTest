@@ -1,6 +1,6 @@
 import React from "react"
 
-import Searcher from '../pages/searcher'
+import Searcher from '../components/searcher'
 
 const IndexPage = () => {
 
