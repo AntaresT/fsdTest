@@ -1,8 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-   // baseURL: process.env.G
-   baseURL: 'http://testapp.axreng.com:4567/'
+   baseURL: process.env.GATSBY_API_URL
 })
 
 var headers = {
