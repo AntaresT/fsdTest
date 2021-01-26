@@ -7,6 +7,7 @@ import styled from 'styled-components'
    align-items: center;
    height: 800px;
    flex-direction: column;
+   font-family: Arial, Helvetica;
 
 `
 
@@ -29,6 +30,9 @@ import styled from 'styled-components'
  const Search = styled.input`
 
    width: 200px;
+   border-radius: 8px;
+   border: 2px solid black;
+   margin-right: 10px;
 
 `
 
@@ -36,6 +40,14 @@ import styled from 'styled-components'
 
    width: 150px;
    height: 50px;
+   transition-duration: 0.4s;
+   border: 2px solid #3498db;
+   border-radius: 8px;
+   background-color: white;
+   &:hover {
+      background-color: #2980b9; 
+      color: white;
+   }
 
 `
 
@@ -77,6 +89,7 @@ import styled from 'styled-components'
    width: 200px;
    justify-content: space-between;
    display:flex;
+   margin-top: 10px;
 
 `
 
@@ -87,6 +100,10 @@ import styled from 'styled-components'
    border: none;
    cursor: pointer;
    background-color: white;
+   transition: all 1s ease;
+   /* &:hover {
+      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+   } */
 
 `
 
@@ -108,6 +125,8 @@ import styled from 'styled-components'
 
    font-size: 20px;
    text-transform: uppercase;
+   color: ${props => props.status? '#e74c3c' : '#2ecc71' };
+   font-weight: bold;
 
 `
 

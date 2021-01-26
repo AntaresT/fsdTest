@@ -16,6 +16,7 @@ const SearchIndex = () => {
   const [ showId, setShowId ] = useState(false);
   const [ showRequest, setShowRequest] = useState(false);
   const [ localReturn, setLocalReturn ] = useState([]);
+  const [ searchStatus, setSearchStatus ] = useState(false)
   const [ requestResult, setRequestResult ] = useState({});
 
   useEffect (() => {
@@ -56,6 +57,11 @@ const SearchIndex = () => {
       let arrayRes = res.data
       setRequestResult(arrayRes)
       setShowRequest(true)
+      if(res.data.status === 'active'){
+        setSearchStatus(true)
+      }else{
+        setSearchStatus(false)
+      }
     },
     (err)=> {
       console.log(err);
@@ -114,7 +120,7 @@ const SearchIndex = () => {
           <ResContainer>
             <Status>
               <StatusTitle>Request Status:</StatusTitle>  
-              <StatusType>{requestResult.status}</StatusType>
+              <StatusType status={searchStatus}>{requestResult.status}</StatusType>
             </Status>
             <UrlsBox>
               <StatusTitle>Urls:</StatusTitle>
