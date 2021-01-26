@@ -7,7 +7,6 @@
     You can use gatsby build to run the project, or serve to run in production at localhost 
 
     ```shell
-    # create a new Gatsby site using the default starter
     gatsby build
     ```
 
